@@ -1,1 +1,1 @@
-# Group 3 Project for Database System 
+# Database System Project by Group 3
