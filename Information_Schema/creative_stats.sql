@@ -1,6 +1,6 @@
 /*
 Dataset : bigquery-public-data.google_political_ads
-Table : advertiser_geo_spend
+Table : creative_stats
 */
 
 SELECT
@@ -11,11 +11,31 @@ SELECT
 FROM
   `bigquery-public-data.google_political_ads.INFORMATION_SCHEMA.COLUMNS`
 WHERE
-  table_name = 'advertiser_geo_spend';
+  table_name = 'creative_stats';
 
 /*
 Results JSON: 
 [{
+  "column_name": "ad_id",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "ad_url",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "ad_type",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "regions",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
   "column_name": "advertiser_id",
   "data_type": "STRING",
   "is_nullable": "YES",
@@ -26,115 +46,254 @@ Results JSON:
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "country",
+  "column_name": "ad_campaigns_list",
   "data_type": "STRING",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "country_subdivision_primary",
+  "column_name": "date_range_start",
+  "data_type": "DATE",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "date_range_end",
+  "data_type": "DATE",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "num_of_days",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "impressions",
   "data_type": "STRING",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
   "column_name": "spend_usd",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "first_served_timestamp",
+  "data_type": "TIMESTAMP",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "last_served_timestamp",
+  "data_type": "TIMESTAMP",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "age_targeting",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "gender_targeting",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "geo_targeting_included",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "geo_targeting_excluded",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_usd",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_eur",
+  "column_name": "spend_range_max_usd",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_inr",
+  "column_name": "spend_range_min_eur",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_bgn",
+  "column_name": "spend_range_max_eur",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_hrk",
+  "column_name": "spend_range_min_inr",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_czk",
+  "column_name": "spend_range_max_inr",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_dkk",
+  "column_name": "spend_range_min_bgn",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_huf",
+  "column_name": "spend_range_max_bgn",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_pln",
+  "column_name": "spend_range_min_czk",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_ron",
+  "column_name": "spend_range_max_czk",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_sek",
+  "column_name": "spend_range_min_dkk",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_gbp",
+  "column_name": "spend_range_max_dkk",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_nzd",
+  "column_name": "spend_range_min_huf",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_ils",
+  "column_name": "spend_range_max_huf",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_aud",
+  "column_name": "spend_range_min_pln",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_twd",
+  "column_name": "spend_range_max_pln",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_brl",
+  "column_name": "spend_range_min_ron",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_ars",
+  "column_name": "spend_range_max_ron",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_zar",
+  "column_name": "spend_range_min_sek",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "spend_clp",
+  "column_name": "spend_range_max_sek",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_gbp",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_gbp",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_nzd",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_nzd",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_ils",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_ils",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_aud",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_aud",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_twd",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_twd",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_brl",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_brl",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_ars",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_ars",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_zar",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_zar",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_min_clp",
+  "data_type": "INT64",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "spend_range_max_clp",
   "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }]
-
 */
