@@ -1,6 +1,6 @@
 /*
 Dataset : bigquery-public-data.google_political_ads
-Table : advertiser_geo_spend
+Table : advertiser_stats
 */
 
 SELECT
@@ -11,7 +11,7 @@ SELECT
 FROM
   `bigquery-public-data.google_political_ads.INFORMATION_SCHEMA.COLUMNS`
 WHERE
-  table_name = 'advertiser_geo_spend';
+  table_name = 'advertiser_stats';
 
 /*
 Results JSON: 
@@ -26,13 +26,23 @@ Results JSON:
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "country",
+  "column_name": "public_ids_list",
   "data_type": "STRING",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "country_subdivision_primary",
+  "column_name": "regions",
   "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "elections",
+  "data_type": "STRING",
+  "is_nullable": "YES",
+  "column_default": "NULL"
+}, {
+  "column_name": "total_creatives",
+  "data_type": "INT64",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
@@ -136,5 +146,4 @@ Results JSON:
   "is_nullable": "YES",
   "column_default": "NULL"
 }]
-
 */
