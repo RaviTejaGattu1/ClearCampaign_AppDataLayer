@@ -1,6 +1,6 @@
 /*
 Dataset : bigquery-public-data.google_political_ads
-Table : advertiser_geo_spend
+Table : advertiser_weekly_spend
 */
 
 SELECT
@@ -11,7 +11,7 @@ SELECT
 FROM
   `bigquery-public-data.google_political_ads.INFORMATION_SCHEMA.COLUMNS`
 WHERE
-  table_name = 'advertiser_geo_spend';
+  table_name = 'advertiser_weekly_spend';
 
 /*
 Results JSON: 
@@ -26,13 +26,13 @@ Results JSON:
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "country",
+  "column_name": "election_cycle",
   "data_type": "STRING",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
-  "column_name": "country_subdivision_primary",
-  "data_type": "STRING",
+  "column_name": "week_start_date",
+  "data_type": "DATE",
   "is_nullable": "YES",
   "column_default": "NULL"
 }, {
@@ -136,5 +136,4 @@ Results JSON:
   "is_nullable": "YES",
   "column_default": "NULL"
 }]
-
 */
