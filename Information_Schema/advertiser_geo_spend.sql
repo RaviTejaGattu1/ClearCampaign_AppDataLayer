@@ -14,6 +14,18 @@ WHERE
   table_name = 'advertiser_geo_spend';
 
 /*
+somehow this worked for me, not the other one
+SELECT
+  column_name,
+  data_type
+FROM
+  bigquery-public-data.google_political_ads.INFORMATION_SCHEMA.COLUMN_FIELD_PATHS
+WHERE
+  table_name = "advertiser_geo_spend"
+*/
+
+
+/*
 Results JSON: 
 [{
   "column_name": "advertiser_id",
