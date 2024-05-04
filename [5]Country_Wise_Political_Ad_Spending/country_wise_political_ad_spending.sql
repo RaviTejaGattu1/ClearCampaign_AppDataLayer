@@ -35,3 +35,5 @@ LIMIT
   100
 )
 
+Appendix : 
+Spending data found only for IL, GB, US
