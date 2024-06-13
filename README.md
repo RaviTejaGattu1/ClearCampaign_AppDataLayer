@@ -1,8 +1,8 @@
 # Database System Project by Group 3
 
-# ClearCampaign
+# ClearCampaign : Vision
 
-An App for Transparent Political Ad Data
+An App For Transparency In Political Advertisement Data
 
 ## Project Overview
 
